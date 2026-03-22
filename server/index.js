@@ -10,8 +10,6 @@ const PORT = process.env.PORT || 5000;
 async function listCollections() {
   const collections = await mongoose.connection.db.listCollections().toArray();
 
-  console.log("Collections in DB:");
-
   collections.forEach((c) => console.log(c.name));
 }
 

@@ -84,7 +84,6 @@ async function findSimilarEntry(title, keywords) {
     );
 
     if (titleScore >= 0.6 || keywordScore >= 0.5) {
-      console.log(`⚠️ Duplicate detected: "${entry.title}"`);
       return entry;
     }
   }
@@ -119,7 +118,6 @@ async function findBestKnowledgeMatch(message = "") {
     (item) => item.title.toLowerCase().trim() === userMessage,
   );
   if (exactMatch) {
-    console.log("Found exact title match in DB");
     return exactMatch;
   }
 
@@ -129,7 +127,6 @@ async function findBestKnowledgeMatch(message = "") {
     ),
   );
   if (keywordMatch) {
-    console.log("Found keyword match in DB");
     return keywordMatch;
   }
 

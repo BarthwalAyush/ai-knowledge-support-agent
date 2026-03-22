@@ -19,9 +19,8 @@ async function chatHandler(req, res) {
     console.log("matchedItem", matchedItem);
 
     if (matchedItem) {
-      console.log(`Found knowledge match in DB`);
       return res.json({
-        reply: `${matchedItem.answer} (DB)`,
+        reply: matchedItem.answer,
         source: matchedItem.title,
       });
     }
@@ -37,7 +36,7 @@ async function chatHandler(req, res) {
       );
 
       return res.json({
-        reply: `${aiResponse} (AI)`,
+        reply: aiResponse,
         source: "AI Response",
       });
     }
