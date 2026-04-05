@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChatInput from "../components/chat/ChatInput";
 import MessageList from "../components/chat/MessageList";
 import { sendChatMessage } from "../services/chatApi";
+import TypingIndicator from "../components/TypingIndicator";
 import type { ChatMessage, ChatMessageHistory } from "../types/chat.types";
 
 function ChatPage() {
@@ -56,6 +57,7 @@ function ChatPage() {
 
       <div style={styles.chatBox as React.CSSProperties}>
         <MessageList messages={messages} />
+        {loading && <TypingIndicator />}
       </div>
 
       <ChatInput

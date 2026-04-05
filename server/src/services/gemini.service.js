@@ -13,12 +13,11 @@ async function askGemini(prompt, history = []) {
     });
 
     const result = await chat.sendMessage(prompt);
-    const response = result.response;
 
-    return response.text();
+    return result.response.text();
   } catch (error) {
     console.error("Gemini Error:", error);
-    return null;
+    return "AI is currently unavailable.";
   }
 }
 

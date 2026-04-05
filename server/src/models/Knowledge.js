@@ -2,22 +2,13 @@ const mongoose = require("mongoose");
 
 const KnowledgeSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
-    keywords: {
-      type: [String],
-      required: true,
-    },
-    answer: {
-      type: String,
-      required: true,
+    title: String,
+    content: String,
+    embedding: {
+      type: [Number],
     },
   },
-  {
-    timestamps: true,
-  },
+  { timestamps: true },
 );
 
 module.exports = mongoose.model("Knowledge", KnowledgeSchema);

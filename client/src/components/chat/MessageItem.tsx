@@ -1,4 +1,5 @@
 import type { ChatRole } from "../../types/chat.types";
+import ReactMarkdown from "react-markdown";
 
 interface MessageItemProps {
   role: ChatRole;
@@ -16,7 +17,10 @@ function MessageItem({ role, text }: MessageItemProps) {
         background: isUser ? "#dbeafe" : "#e5e7eb",
       }}
     >
-      <strong>{isUser ? "You" : "Agent"}:</strong> {text}
+      <div style={{ marginBottom: "8px" }}>
+        <strong>{isUser ? "You" : "Agent"}</strong>
+      </div>
+      <ReactMarkdown>{text}</ReactMarkdown>
     </div>
   );
 }
